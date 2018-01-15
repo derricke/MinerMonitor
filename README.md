@@ -10,7 +10,6 @@ This is a very basic monitor for your miners. With updated front end
 * [Download](#download)
 * [Usage instructions](#usage-instructions)
 * [TODOS](#todos)
-* [Donations](#donations)
 * [Credits](#credits)
 * [License](#license)
 
@@ -22,8 +21,8 @@ Dependencies
 
 Download
 ========
- * Git tree:   https://github.com/derricke/MinerMonitor
- * Clone with `git clone https://github.com/derricke/MinerMonitor.git`
+ * Git tree:   https://github.com/drfogs/minerMonitor
+ * Clone with `git clone https://github.com/drfogs/MinerMonitor.git`
 
 Usage instructions
 ==================
