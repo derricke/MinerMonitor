@@ -1,5 +1,5 @@
 body {
-	color:#cccccc; background:#1d1d1d; margin:30px 30px 0px 30px; padding:0px;
+	color:black; background:white; margin:30px 30px 0px 30px; padding:0px;
 	font-size:.8em; font-family:Arial,Helvetica,sans-serif;
 }
 a { color:#aaaaaa; text-decoration: none; }
@@ -9,37 +9,118 @@ a:focus { outline-style:none; }
 div#page, div#header, div#footer {
 	margin: auto;
 	width: 100%;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 div#page {
-	padding-top: 8px;
-	background: #252525;
-	min-height: 820px;
+    padding-top: 8px;
+    background: #ffffff;
+    min-height: 520px;
+    width: 95%;
+	position: relative;
 }
 div#header {
-	background: rgba(65, 65, 65, 0.85);
-	height: 50px;
-	margin-bottom: 24px;
-	padding-left: 8px;
+	position: relative;
+	background: rgb(255, 255, 255);
+    height: 150px;
+    border-bottom: 1px solid grey;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 95%;
 }
 div#footer {
-	background: rgba(25, 25, 25, 0.85);
-	height: 0px;
-	margin-bottom: 40px;
-	text-align: center;
-	color: #666666;
-	text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 0px;
+    background: rgba(0, 0, 0, 0.85);
+    height: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid black;
+	width: 95%;
 }
-#header h1 { padding: 12px; font-size: 20px; }
+#header h1 { 
+	padding: 12px; 
+	font-size: 40px !important;
+    float: left;
+    height: 30px;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    padding-top: 54px !important;
+    color: #46505b; 
+}
 #footer p { margin: 12px 24px; }
 
-table.stats { width: 280px; margin: 4px 4px; display: inline-block; }
-th.machine { color: darkcyan; padding: 4px 0px 0px 0px; text-align: left; border-bottom: 1px solid gray; }
+.logo {
+	width: 120px;
+	float: left;
+}
+
+p.donation {
+    float: right;
+    padding-top: 80px;
+	display: none;
+}
+
+a.footerLink {
+    color: white !important;
+    text-shadow: none;
+    font-size: 30px;
+}
+
+table.stats { width: 200px; margin: 4px 4px 4px 10px; display: inline-block; border: black 1px solid; padding: 20px; }
+
+th.machine { 
+	color: #408ad0;
+    padding: 4px 0px 0px 0px;
+    text-align: left;
+	font-size: 20px  
+}
 th.gpu { color: white; padding: 3px 3px; font: bolder; text-align: left; background: rgba(65, 65, 65, 0.85); }
 td.key { width: 99px; max-width: 180px; }
-td.val { width: 40px; max-width: 100px; color: white; }
+td.val { width: 40px; max-width: 100px; color: black; }
 
-div.totals { margin: 16px; padding-bottom: 16px; }
-div.totals h2 { color: darkcyan; font-size: 16px; margin-bottom: 4px; }
+div.totals {
+    margin: 0px;
+    background: #83b2e1;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+div.totals h2 {
+    color: #ffffff;
+    font-size: 30px;
+}
 div.totals li { list-style-type: none; font-size: 16px; margin-left: 4px; margin-bottom: 8px; }
 li span.algo { display: inline-block; width: 100px; max-width: 180px; }
+
+.loginArea {
+    font-size: 30px !important;
+    text-transform: uppercase !important;
+}
+
+input {
+    border: 1px solid black !important;
+    padding: 10px !important;
+    margin: 10px !important;
+}
+
+input[type="submit"] {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 558px) {
+    #header h1 { 
+		font-size: 30px !important;
+    	padding-top: 67px !important;
+	}
+}
+
+@media only screen and (max-width: 470px) {
+    #header h1 { 
+		font-size: 21px !important;
+    	padding-top: 73px !important;
+	}
+}

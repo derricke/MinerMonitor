@@ -81,34 +81,34 @@ function getdataFromPeers()
 
 function ignoreField($key)
 {
-	$ignored = array('NAME','VER','ALGO','GPUS','SOLV','ACCMN','CPU','TEMP','TS','API','GPU','CARD','FAN','REJ','DIFF','UPTIME');
+	$ignored = array('NAME','VER','ALGO','GPUS','CPU','TEMP','TS','API','GPU','CARD','FAN');
 	return in_array($key, $ignored);
 }
 
 function translateField($key)
 {
 	$intl = array();
-	$intl['NAME'] = 'Software';
-	$intl['VER'] = 'Version';
-	$intl['KHS'] = 'KH/S';
-	$intl['KHM'] = 'KH/M';
+	$intl['NAME'] = 'Software:';
+	$intl['VER'] = 'Version:';
+	$intl['KHS'] = 'kH/s:';
+	$intl['KHM'] = 'kH/m:';
 
-	$intl['ALGO'] = 'Algorithm';
-	$intl['GPUS'] = 'GPUs';
-	$intl['CPUS'] = 'Threads';
-	$intl['H/m'] = 'Hash rate (H/m)';
-	$intl['SOLV'] = 'Found blocks';
-	$intl['ACC'] = 'Blocks found';
-	$intl['ACCMN'] = 'Accepted / mn';
-	$intl['REJ'] = 'Rejected';
-	$intl['DIFF'] = 'Difficulty';
-	$intl['UPTIME'] = 'Miner up time';
-	$intl['TS'] = 'Last update';
+	$intl['ALGO'] = 'Algorithm:';
+	$intl['GPUS'] = 'GPUs:';
+	$intl['CPUS'] = 'CPU Threads:';
+	$intl['H/m'] = 'Hash rate (H/m):';
+	$intl['SOLV'] = 'Blocks:';
+	$intl['ACC'] = 'Shares:';
+	$intl['ACCMN'] = 'Shares/m:';
+	$intl['REJ'] = 'Rejected:';
+	$intl['DIFF'] = 'Difficulty:';
+	$intl['UPTIME'] = 'Up Time:';
+	$intl['TS'] = 'Last update:';
 
-	$intl['TEMP'] = 'T c';
-	$intl['FAN'] = 'Fan %';
-	$intl['FREQ'] = 'CPU Freq.';
-	$intl['PST'] = 'P-State';
+	$intl['TEMP'] = 'T c:';
+	$intl['FAN'] = 'Fan %:';
+	$intl['FREQ'] = 'Freq.:';
+	$intl['PST'] = 'P-State:';
 
 	if (isset($intl[$key]))
 		return $intl[$key];
@@ -168,7 +168,7 @@ function displayData($data)
 	}
 	// totals
 
-    $totals = '<div class="totals"><h2>Totals:<br />KH/S: '.$totalHashRate.'<br />KH/M: '.($totalHashRate*60).'</h2></div>'."\n";
+    $totals = '<div class="totals"><h2>MINING RIG TOTAL<br />H/m: '.($totalHashRate*60*1000).'<br />kH/m: '.($totalHashRate*60).'<br />kH/s: '.$totalHashRate.'</h2></div>'."\n";
 	return $totals.$htm;
 }
 
