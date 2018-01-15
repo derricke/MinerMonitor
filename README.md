@@ -26,6 +26,9 @@ Download
 
 Usage instructions
 ==================
+#### Updating from a previous version:
+If updating from Derricke's version clear browsing data, otherwise it will throw a mixture of the previous version with this version.
+
 #### On miner machines:
  * Run cpuminer with the command line option: `--api-bind 0.0.0.0:4048`
  * Open firewall incoming port tcp:4048
