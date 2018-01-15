@@ -1,7 +1,7 @@
 MinerMonitor
 ==============
 
-This is a very basic monitor for your miners.
+This is a very basic monitor for your miners. With updated front end
 (see [AUTHORS](AUTHORS) for a list of contributors)
 
 #### Table of contents
@@ -57,19 +57,11 @@ Press Ctrl-C to quit
 
 TODOS
 =====
- * [ ] Separate PHP from HTML
- * [ ] Refactor code into a class
- * [ ] Add multi-threaded sockets for faster monitoring
- * [ ] Add option to use DB instead of minerHosts file 
-
-Donations
-=========
- * VRM Address: VNkzLTz9CpedmmFirXzAJriQmBWFFuZSpk
- * VRC Address: VZLvKjHLqHWbdKPZk5st1t22oPXzfNW5z1
+ * [ ] Accurate total H/m to be implemented
 
 Credits
 =======
-MinerMonitor is based on Birty's original version.
+MinerMonitor is based on Birty's original version, forked from Derricke's fork
 I fixed code formatting, remade some functions, added useability, etc.
 
 License
