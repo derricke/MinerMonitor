@@ -18,7 +18,7 @@ div#page {
 }
 div#header {
 	background: rgba(65, 65, 65, 0.85);
-	height: 50px;
+	height: 70px;
 	margin-bottom: 24px;
 	padding-left: 8px;
 }
@@ -38,6 +38,9 @@ th.machine { color: darkcyan; padding: 4px 0px 0px 0px; text-align: left; border
 th.gpu { color: white; padding: 3px 3px; font: bolder; text-align: left; background: rgba(65, 65, 65, 0.85); }
 td.key { width: 99px; max-width: 180px; }
 td.val { width: 40px; max-width: 100px; color: white; }
+
+table.totals { color: darkcyan; font-size: 18px;}
+td.totals { padding: 5px 10px; text-align: left;}
 
 div.totals { margin: 16px; padding-bottom: 16px; }
 div.totals h2 { color: darkcyan; font-size: 16px; margin-bottom: 4px; }

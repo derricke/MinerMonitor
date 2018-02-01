@@ -7,6 +7,7 @@ This is a very basic monitor for your miners.
 #### Table of contents
 
 * [Dependencies](#dependencies)
+* [Docker](#docker)
 * [Download](#download)
 * [Usage instructions](#usage-instructions)
 * [TODOS](#todos)
@@ -16,61 +17,110 @@ This is a very basic monitor for your miners.
 
 Dependencies
 ============
+ * Tested on Raspberry Pi Stretch Lite.
+ If you need to setup the Verium wallet on Rasbian Stretch
+ ```
+ sudo apt-get update
+ sudo apt-get upgrade
+ sudo apt-get remove libssl-dev
+ sudo nano /etc/apt/sources.list
+ edit the line below change stretch to jessie
+ deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+ ctrl x then Y to save
+ sudo apt-get update
+ sudo apt-get install libssl-dev
+ sudo apt-mark hold libssl-dev
+ sudo nano /etc/apt/sources.list
+ edit the line below change jessie to stretch
+ deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi
+ ctrl x then Y to save
+
+ wget https://raw.githubusercontent.com/DJoeDt/verium/master/install_Verium_Wallet.sh
+ chmod +x install_Verium_Wallet.sh
+ ./install_Verium_Wallet.sh
+ Verium Wallet install script credit to https://vrm.mining-pool.ovh/
+ ``` 
  * PHP enabled web server
  * fsock enabled for PHP
  * You can run a built in PHP server from your PC instead of a full server
 
+Docker
+======
+ Edit the config.ini and minerHosts files
+ ```
+ # config.ini
+ walletuser = YourSoloMiningName
+ walletpassword = YourSoloMiningPassword
+ walletaddress = 127.0.0.1
+
+ # minerHosts
+ 1.2.3.4
+ 1.2.3.5
+ 1.2.3.6
+ ```
+
+ Build the image
+ ```
+ docker build -t minermonitor .
+ ```
+ 
+ Run the container
+ ```
+ docker run -d --net=host --name minermonitor minermonitor
+ ```
+
 Download
 ========
- * Git tree:   https://github.com/derricke/MinerMonitor
- * Clone with `git clone https://github.com/derricke/MinerMonitor.git`
+ * Git tree:   https://github.com/wienerdogracing/MinerMonitor
+ * Clone with `git clone https://github.com/wienerdogracing/MinerMonitor.git`
 
 Usage instructions
 ==================
 #### On miner machines:
  * Run cpuminer with the command line option: `--api-bind 0.0.0.0:4048`
- * Open firewall incoming port tcp:4048
-
-#### On Web Server
+ * Open firewall incoming port tcp:4048 (might not be needed)
+ * For Odroids it is suggested to run Fireworm's latest version for correct CPU frequency and Temperature reporting
+ * For Odroids soloing or make adjustments for the stratum pool
+ ```
+ ./cpuminer -o walletIP:33987 -O walletuser:walletpassword -t 2 -1 6 --cpu-affinity-stride 1 --cpu-affinity-default-index 6 --cpu-affinity-oneway-index 0 --api-bind 0.0.0.0:4048
+ ```
+#### Install Web Server
+```
+sudo apt-get install -y lighttpd php7.0-cgi
+sudo lighty-enable-mod fastcgi
+sudo lighty-enable-mod fastcgi-php
+sudo nano /etc/lighttpd/lighttpd.conf
+```
+change = "/var/www/html" to = "/home/pi/MinerMonitor" or to where ever you cloned the repository to above.
+```
+sudo service lighttpd force-reload
+```
+#### On Web Server Machine
  * Download or clone repo
- * Modify minerHosts file with a list of your miners to monitor
+ * Modify minerHosts file with a list of your miners to monitor. (IP address or hostname)
  * Modify minerHosts path in config.ini
    * By default it will be in the same folder, but you can place it anywhere as long as you correctly set the path
- * Point web server to folder
- * Open firewall outgoing port tcp:4048
-
-#### Simple built in php server
- * [Full Instructions](http://php.net/manual/en/features.commandline.webserver.php)
- * Install PHP for your OS
- * Go to the path where you cloned this repo
- * Run this command `php -S localhost:8000`
-   * Terminal will show:
-```
-PHP Development Server started
-Listening on localhost:8000
-Document root is /var/www/public_html
-Press Ctrl-C to quit
-```
+ * Modify config.ini for solo = TRUE (Default) or solo = FALSE for pool mining
+ * Modify config.ini for wallet user, password and address.  (Solo mining only)
+ * Open firewall outgoing port tcp:4048 (not needed on the Pi)
 
 #### Finish
  * Point your browser to your webserver
 
 TODOS
 =====
- * [ ] Separate PHP from HTML
- * [ ] Refactor code into a class
- * [ ] Add multi-threaded sockets for faster monitoring
- * [ ] Add option to use DB instead of minerHosts file 
+ * [ ] Add additional data for pool mining 
 
 Donations
 =========
- * VRM Address: VNkzLTz9CpedmmFirXzAJriQmBWFFuZSpk
- * VRC Address: VZLvKjHLqHWbdKPZk5st1t22oPXzfNW5z1
+ * VRM Address: VG3g6FqTGbGqhKWcUxpi297AfcM7s4FZEj
+ * VRC Address: VLv5zmWsQ5q7Vm2SG4FdD1csRwbGwJeMtb
 
 Credits
 =======
 MinerMonitor is based on Birty's original version.
-I fixed code formatting, remade some functions, added useability, etc.
+Derricke fixed code formatting, remade some functions, added useability, etc.
+I added wallet integration for solo mining, better odroid support and added reporting.
 
 License
 =======
