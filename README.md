@@ -1,4 +1,4 @@
-MinerMonitor
+MinerMonitor v1.1
 ==============
 
 This is a very basic monitor for your miners.
@@ -71,8 +71,8 @@ Docker
 
 Download
 ========
- * Git tree:   https://github.com/wienerdogracing/MinerMonitor
- * Clone with `git clone https://github.com/wienerdogracing/MinerMonitor.git`
+ * Git tree:   https://github.com/derricke/MinerMonitor
+ * Clone with `git clone https://github.com/derricke/MinerMonitor.git`
 
 Usage instructions
 ==================
@@ -109,18 +109,21 @@ sudo service lighttpd force-reload
 
 TODOS
 =====
- * [ ] Add additional data for pool mining 
+ * [ ] Add additional data for pool mining
+ * [ ] Add SQL Support for managing miners 
 
 Donations
 =========
- * VRM Address: VG3g6FqTGbGqhKWcUxpi297AfcM7s4FZEj
- * VRC Address: VLv5zmWsQ5q7Vm2SG4FdD1csRwbGwJeMtb
+ * VRM Address: VNkzLTz9CpedmmFirXzAJriQmBWFFuZSpk
+ * VRC Address: VZLvKjHLqHWbdKPZk5st1t22oPXzfNW5z1
 
 Credits
 =======
 MinerMonitor is based on Birty's original version.
-Derricke fixed code formatting, remade some functions, added useability, etc.
-I added wallet integration for solo mining, better odroid support and added reporting.
+
+wienerdogracing
+* Docker Support added
+* wallet integration for solo mining, better odroid support and added reporting.
 
 License
 =======
